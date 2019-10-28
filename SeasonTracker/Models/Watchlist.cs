@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
@@ -9,6 +10,7 @@ namespace SeasonTracker.Models
     {
         private int _id;
 
+        [PrimaryKey, AutoIncrement]
         public int Id
         {
             get { return _id; }
@@ -17,6 +19,7 @@ namespace SeasonTracker.Models
 
         private int _userId;
 
+        [Indexed]   //Foreign key for User model
         public int UserId
         {
             get { return _userId; }

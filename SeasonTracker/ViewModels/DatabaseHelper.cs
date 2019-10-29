@@ -1,4 +1,5 @@
-﻿using SQLite;
+﻿using SeasonTracker.Models;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,7 +10,7 @@ namespace SeasonTracker.ViewModels
     public class DatabaseHelper
     {
         //defining static so we can easily access without creating a new instance of the class
-        private static readonly string databaseName = "SeasonTracker.db";
+        private static readonly string databaseName = "SeasonTracker.db3";
         private static readonly string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         private static readonly string dbFile = Path.Combine(folderPath, databaseName);
 
@@ -19,7 +20,7 @@ namespace SeasonTracker.ViewModels
 
             using (SQLiteConnection conn = new SQLiteConnection(dbFile))
             {
-                conn.CreateTable<T>();
+                conn.CreateTable<Watchlist>();
                 int numberOfRows = conn.Insert(item);
                 if (numberOfRows > 0)
                     result = true;

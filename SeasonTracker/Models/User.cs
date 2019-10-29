@@ -10,7 +10,7 @@ namespace SeasonTracker.Models
     {
         private int _id;
 
-        [PrimaryKey, AutoIncrement]
+        //[PrimaryKey, AutoIncrement]
         public int Id
         {
             get { return _id; }

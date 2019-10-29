@@ -10,20 +10,20 @@ namespace SeasonTracker.Models
     {
         private int _id;
 
-        [PrimaryKey, AutoIncrement]
+        //[PrimaryKey, AutoIncrement]
         public int Id
         {
             get { return _id; }
             set { _id = value; OnPropertyChanged("Id"); }
         }
 
-        private int _userId;
+        private User _user;
 
-        [Indexed]   //Foreign key for User model
-        public int UserId
+        //[Indexed]   //Foreign key for User model
+        public User User
         {
-            get { return _userId; }
-            set { _userId = value; OnPropertyChanged("UserId"); }
+            get { return _user; }
+            set { _user = value; OnPropertyChanged("UserId"); }
         }
 
         private string _tvShowName;

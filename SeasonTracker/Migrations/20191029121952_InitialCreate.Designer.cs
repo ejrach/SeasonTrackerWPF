@@ -9,7 +9,7 @@ using SeasonTracker.Models;
 namespace SeasonTracker.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20191028234459_InitialCreate")]
+    [Migration("20191029121952_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

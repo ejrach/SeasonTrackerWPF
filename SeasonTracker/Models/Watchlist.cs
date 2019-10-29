@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace SeasonTracker.Models
@@ -17,13 +18,14 @@ namespace SeasonTracker.Models
             set { _id = value; OnPropertyChanged("Id"); }
         }
 
-        private User _user;
+        private int _userId;
 
         //[Indexed]   //Foreign key for User model
-        public User User
+        [Required]
+        public int UserId
         {
-            get { return _user; }
-            set { _user = value; OnPropertyChanged("UserId"); }
+            get { return _userId; }
+            set { _userId = value; OnPropertyChanged("UserId"); }
         }
 
         private string _tvShowName;

@@ -24,7 +24,7 @@ namespace SeasonTracker.ViewModels.Commands
         {
             //TODO: create new watchlist
             //temp
-            int userId = 1;
+            int userId = 99;
             VM.CreateWatchlist(userId);
         }
     }

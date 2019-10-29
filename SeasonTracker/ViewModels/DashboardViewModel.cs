@@ -1,4 +1,5 @@
-﻿using SeasonTracker.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using SeasonTracker.Models;
 using SeasonTracker.ViewModels.Commands;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ namespace SeasonTracker.ViewModels
     //  2. Commands like create new watchlists
     public class DashboardViewModel
     {
-        //private ApplicationDbContext _db;
+        private readonly ApplicationDbContext _db;
 
         public ObservableCollection<Watchlist> Watchlists { get; set; }
 
@@ -37,16 +38,15 @@ namespace SeasonTracker.ViewModels
             NewWatchlistCommand = new NewWatchlistCommand(this);
             MyListCommand = new MyListCommand(this);
 
-            //_db = new ApplicationDbContext();
+            _db = new ApplicationDbContext();
         }
 
         public void CreateWatchlist(int userId)
         {
-            
-
             Watchlist newWatchlist = new Watchlist()
             {
                 //TODO: User id goes here
+                UserId = userId,
                 TvShowName = "Big Bang Theory",
                 Season = "1",
                 NumberOfEpisodes = "20",
@@ -54,13 +54,12 @@ namespace SeasonTracker.ViewModels
             };
 
             //TODO: LEFT OFF HERE. Code is not getting here.
-            //if (_db != null)
-            //{
-            //    _db.Watchlists.Add(newWatchlist);
-            //    _db.SaveChanges();
-            //}
+            if (_db != null)
+            {
+                _db.Watchlists.Add(newWatchlist);
+                _db.SaveChanges();
+            }
             //DatabaseHelper.Insert(newWatchlist);
-            
         }
     }
 }

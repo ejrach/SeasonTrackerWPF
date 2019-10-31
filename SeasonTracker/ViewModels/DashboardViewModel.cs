@@ -53,13 +53,8 @@ namespace SeasonTracker.ViewModels
                 EpisodeViewlist = new string('N', 20)
             };
 
-            //TODO: LEFT OFF HERE. Code is not getting here.
-            if (_db != null)
-            {
-                _db.Watchlists.Add(newWatchlist);
-                _db.SaveChanges();
-            }
-            //DatabaseHelper.Insert(newWatchlist);
+            DbContextHelper.Insert(newWatchlist);
+
         }
     }
 }
